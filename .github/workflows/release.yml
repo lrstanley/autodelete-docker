@@ -12,7 +12,6 @@ on:
 
 jobs:
   docker-release:
-    needs: [go-test, go-lint]
     uses: lrstanley/.github/.github/workflows/docker-release.yml@master
     secrets:
       SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
