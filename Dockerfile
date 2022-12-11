@@ -23,4 +23,5 @@ RUN if [ ! -e /etc/nsswitch.conf ];then echo 'hosts: files dns' > /etc/nsswitch.
 COPY --from=build-go /build/autodelete /app/autodelete
 
 VOLUME /autodelete
+WORKDIR /autodelete
 CMD ["/app/autodelete"]
