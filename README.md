@@ -10,5 +10,5 @@ $ docker run -d \
     -v config.yml:/autodelete/config.yml \
     -v ./data/:/autodelete/data/ \
     --restart=always \
-    ghcr.io/lrstanley/autodelete-docker:master
+    ghcr.io/lrstanley/autodelete-docker:latest
 ```
