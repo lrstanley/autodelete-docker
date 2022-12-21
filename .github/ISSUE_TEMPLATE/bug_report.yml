@@ -48,6 +48,26 @@ body:
       placeholder: 'Examples: "v1.2.3, master branch, commit 1a2b3c"'
     validations:
       required: true
+  - type: dropdown
+    id: os
+    attributes:
+      label: "🖥 Version: Operating system"
+      description: >-
+        What operating system did this issue occur on (if other, specify in
+        "Additional context" section)?
+      options:
+        - linux/ubuntu
+        - linux/debian
+        - linux/centos
+        - linux/alpine
+        - linux/other
+        - windows/10
+        - windows/11
+        - windows/other
+        - macos
+        - other
+    validations:
+      required: true
   - type: textarea
     id: context
     attributes:
