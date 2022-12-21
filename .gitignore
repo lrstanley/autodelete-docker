@@ -1,2 +1,5 @@
 dist/
 build/
+autodelete-windows/config.yml
+autodelete-windows/data/**
+autodelete-windows/autodelete_windows_amd64.exe
