@@ -56,5 +56,5 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: snapshot-binaries
-          retention-days: 14
+          retention-days: 30
           path: dist/**
