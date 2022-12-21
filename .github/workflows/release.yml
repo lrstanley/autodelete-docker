@@ -12,6 +12,49 @@ on:
 
 jobs:
   docker-release:
+    needs: [binary-release]
     uses: lrstanley/.github/.github/workflows/docker-release.yml@master
     secrets:
       SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
+  binary-release:
+    runs-on: ubuntu-latest
+    permissions:
+      checks: write
+      contents: write
+      discussions: write
+      issues: write
+      packages: write
+      security-events: write
+      statuses: write
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+      - run: git fetch --force --tags
+      - name: git-clone-tools-repo
+        uses: actions/checkout@v3
+        with:
+          repository: lrstanley/.github
+          path: ghmeta
+      - id: goversion
+        run: ./ghmeta/scripts/versions-go.sh ${{ 'latest' }}
+      - name: install-go
+        uses: actions/setup-go@v3
+        with:
+          go-version: "${{ steps.goversion.outputs.version }}"
+      - run: ./ghmeta/goreleaser/run.sh
+        env:
+          INPUT_HAS_GHCR: true
+          INPUT_IMAGE_NAME: ${{ github.repository_owner }}/${{ github.event.repository.name }}
+          INPUT_ARCHIVES: false
+          INPUT_DRAFT: false
+          INPUT_PR_ID: ${{ github.event.pull_request.number }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          DEFAULT_BRANCH: ${{ github.event.repository.default_branch || 'master' }}
+      - name: upload-snapshot-binaries
+        if: github.ref_type != 'tag'
+        uses: actions/upload-artifact@v3
+        with:
+          name: snapshot-binaries
+          retention-days: 14
+          path: dist/**
