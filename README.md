@@ -34,6 +34,23 @@ $ docker run -d \
     ghcr.io/lrstanley/autodelete-docker:latest
 ```
 
+### :computer: Simple Windows Execution
+
+1. Create a new folder called `autodelete`
+2. Download the latest `autodelete_windows_amd64.exe` release file from [here](https://github.com/lrstanley/autodelete-docker/releases),
+   and save it into the `autodelete` folder.
+3. Create a `start.bat` file, with the following contents:
+   ```bat
+   @if not exist ".\data\" mkdir .\data
+   @if not exist ".\config.yml" copy NUL .\config.yml > NUL
+
+   .\autodelete_windows_amd64.exe
+   pause
+   ```
+4. Run `start.bat`, it will create `config.yml` and `data`. Edit `config.yml` with your config.
+   See the [example config here](https://github.com/riking/AutoDelete/blob/master/config.example.yml).
+5. Once you've added the config, simply re-run `start.bat`.
+
 ### :toolbox: Build From Source
 
 Check out the steps within the `Dockerfile`, or the [source repos build documentation](https://github.com/riking/AutoDelete/blob/master/docs/build.sh).
