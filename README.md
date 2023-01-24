@@ -37,9 +37,28 @@ $ docker run -d \
 
 ### :computer: Simple Windows Execution
 
+If you'd like to use a script to handle everything for you, simply follow these steps:
+
 1. Copy the `autodelete-windows` folder from this repository, into a directory locally.
 2. Run `start.bat`, it will generate the config file. Update it with your configuration.
 3. Re-run `start.bat`, it will download the latest autodelete binary, and then start the bot.
+
+### :computer: Linux
+
+```console
+# download the appropriate binary for your platform, e.g:
+wget -O autodelete-bot https://liam.sh/-/gh/dl/autodelete-docker/latest/autodelete_linux_amd64 # x86-64
+wget -O autodelete-bot https://liam.sh/-/gh/dl/autodelete-docker/latest/autodelete_linux_arm   # arm
+
+# make the binary executable, so you can run it:
+chmod +x autodelete-bot
+
+# add your configuration:
+vim config.yml # or nano config.yaml
+
+# run the bot:
+./autodelete-bot
+```
 
 ### :toolbox: Build From Source
 
@@ -49,24 +68,24 @@ Check out the steps within the `Dockerfile`, or the [source repos build document
 <!-- do not edit anything in this "template" block, its auto-generated -->
 ## :raising_hand_man: Support & Assistance
 
-* :heart: Please review the [Code of Conduct](.github/CODE_OF_CONDUCT.md) for
+- :heart: Please review the [Code of Conduct](.github/CODE_OF_CONDUCT.md) for
      guidelines on ensuring everyone has the best experience interacting with
      the community.
-* :raising_hand_man: Take a look at the [support](.github/SUPPORT.md) document on
+- :raising_hand_man: Take a look at the [support](.github/SUPPORT.md) document on
      guidelines for tips on how to ask the right questions.
-* :lady_beetle: For all features/bugs/issues/questions/etc, [head over here](https://github.com/lrstanley/autodelete-docker/issues/new/choose).
+- :lady_beetle: For all features/bugs/issues/questions/etc, [head over here](https://github.com/lrstanley/autodelete-docker/issues/new/choose).
 <!-- template:end:support -->
 
 <!-- template:begin:contributing -->
 <!-- do not edit anything in this "template" block, its auto-generated -->
 ## :handshake: Contributing
 
-* :heart: Please review the [Code of Conduct](.github/CODE_OF_CONDUCT.md) for guidelines
+- :heart: Please review the [Code of Conduct](.github/CODE_OF_CONDUCT.md) for guidelines
      on ensuring everyone has the best experience interacting with the
     community.
-* :clipboard: Please review the [contributing](.github/CONTRIBUTING.md) doc for submitting
+- :clipboard: Please review the [contributing](.github/CONTRIBUTING.md) doc for submitting
      issues/a guide on submitting pull requests and helping out.
-* :old_key: For anything security related, please review this repositories [security policy](https://github.com/lrstanley/autodelete-docker/security/policy).
+- :old_key: For anything security related, please review this repositories [security policy](https://github.com/lrstanley/autodelete-docker/security/policy).
 <!-- template:end:contributing -->
 
 <!-- template:begin:license -->
