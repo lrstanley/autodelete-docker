@@ -33,7 +33,7 @@ goreleaser:
         targets:
           - linux_amd64
           - linux_arm64
-          - linux_arm_6
+          - linux_arm
           - freebsd_amd64
           - windows_amd64
           - darwin_amd64
