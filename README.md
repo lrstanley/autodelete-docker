@@ -14,10 +14,10 @@ well as generated windows/linux/macos binaries for the bot within that repositor
     - [Container Images (ghcr)](#whale-container-images-ghcr)
     - [Simple Windows Execution](#computer-simple-windows-execution)
     - [Linux](#computer-linux)
-    - [Build From Source](#toolbox-build-from-source)
+    - [🧰 Build From Source](#toolbox-build-from-source)
   - [Support &amp; Assistance](#raising_hand_man-support--assistance)
-  - [Contributing](#handshake-contributing)
-  - [License](#balance_scale-license)
+  - [🤝 Contributing](#handshake-contributing)
+  - [⚖️ License](#balance_scale-license)
 <!-- template:end:toc -->
 
 ## :computer: Installation
