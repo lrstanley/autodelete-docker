@@ -10,8 +10,8 @@ well as generated windows/linux/macos binaries for the bot within that repositor
 ## :link: Table of Contents
 
 - [AutoDelete Discord Bot Binaries/Container Image](#autodelete-discord-bot-binariescontainer-image)
-  - [💻 Installation](#computer-installation)
-    - [🐳 Container Images (ghcr)](#whale-container-images-ghcr)
+  - [Installation](#computer-installation)
+    - [Container Images (ghcr)](#whale-container-images-ghcr)
     - [Simple Windows Execution](#computer-simple-windows-execution)
     - [Linux](#computer-linux)
     - [Build From Source](#toolbox-build-from-source)
