@@ -39,7 +39,7 @@ jobs:
       - id: goversion
         run: ./ghmeta/scripts/versions-go.sh ${{ 'latest' }}
       - name: install-go
-        uses: actions/setup-go@v4
+        uses: actions/setup-go@v5
         with:
           go-version: "${{ steps.goversion.outputs.version }}"
       - run: ./ghmeta/goreleaser/run.sh
