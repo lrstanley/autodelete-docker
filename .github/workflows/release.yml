@@ -36,8 +36,10 @@ jobs:
         with:
           repository: lrstanley/.github
           path: ghmeta
-      - id: goversion
-        run: ./ghmeta/scripts/versions-go.sh ${{ 'latest' }}
+      - uses: lrstanley/.github/composite/go-versions@master
+        id: goversion
+        with:
+          version: latest
       - name: install-go
         uses: actions/setup-go@v4
         with:
