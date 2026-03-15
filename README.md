@@ -68,7 +68,7 @@ Check out the steps within the `Dockerfile`, or the [source repos build document
 ```
 MIT License
 
-Copyright (c) 2022 Liam Stanley <me@liamstanley.io>
+Copyright (c) 2022 Liam Stanley <liam@liam.sh>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
