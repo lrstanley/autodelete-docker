@@ -1,7 +1,6 @@
 # AutoDelete Discord Bot Binaries/Container Image
 
-This repository contains an auto-built container image, from the main branch of `github.com/riking/AutoDelete`, as
-well as generated windows/linux/macos binaries for the bot within that repository.
+This repository contains an auto-built container image, from the main branch of `github.com/riking/AutoDelete`.
 
 **See more [here](https://github.com/riking/AutoDelete).**
 
@@ -12,8 +11,6 @@ well as generated windows/linux/macos binaries for the bot within that repositor
 - [AutoDelete Discord Bot Binaries/Container Image](#autodelete-discord-bot-binariescontainer-image)
   - [Installation](#computer-installation)
     - [Container Images (ghcr)](#whale-container-images-ghcr)
-    - [Simple Windows Execution](#computer-simple-windows-execution)
-    - [Linux](#computer-linux)
     - [Build From Source](#toolbox-build-from-source)
   - [Support &amp; Assistance](#raising_hand_man-support--assistance)
   - [Contributing](#handshake-contributing)
@@ -34,31 +31,6 @@ $ docker run -d \
     -v ./data/:/autodelete/data/ \
     --restart=always \
     ghcr.io/lrstanley/autodelete-docker:latest
-```
-
-### :computer: Simple Windows Execution
-
-If you'd like to use a script to handle everything for you, simply follow these steps:
-
-1. Copy the `autodelete-windows` folder from this repository, into a directory locally.
-2. Run `start.bat`, it will generate the config file. Update it with your configuration.
-3. Re-run `start.bat`, it will download the latest autodelete binary, and then start the bot.
-
-### :computer: Linux
-
-```console
-# download the appropriate binary for your platform, e.g:
-wget -O autodelete-bot https://liam.sh/-/gh/dl/autodelete-docker/latest/autodelete_linux_amd64 # x86-64
-wget -O autodelete-bot https://liam.sh/-/gh/dl/autodelete-docker/latest/autodelete_linux_arm   # arm
-
-# make the binary executable, so you can run it:
-chmod +x autodelete-bot
-
-# add your configuration:
-vim config.yml # or nano config.yaml
-
-# run the bot:
-./autodelete-bot
 ```
 
 ### :toolbox: Build From Source

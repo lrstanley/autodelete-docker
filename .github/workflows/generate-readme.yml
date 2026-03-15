@@ -2,7 +2,7 @@ name: generate-readme
 
 on:
   push:
-    branches: [master, main]
+    branches: [master]
     tags: [v*]
   schedule:
     - cron: "0 13 * * *"
@@ -10,5 +10,4 @@ on:
 jobs:
   generate:
     uses: lrstanley/.github/.github/workflows/generate-readme.yml@master
-    secrets:
-      token: ${{ secrets.USER_PAT }}
+    secrets: inherit

@@ -1,10 +1,6 @@
 name: release
 
 on:
-  pull_request:
-    branches: [master, main]
-    paths-ignore: [".gitignore", "**/*.md", ".github/ISSUE_TEMPLATE/**"]
-    types: [opened, edited, reopened, synchronize, unlocked]
   push:
     branches: [master, main]
     tags: [v*]
@@ -12,51 +8,7 @@ on:
 
 jobs:
   docker-release:
-    needs: [binary-release]
     uses: lrstanley/.github/.github/workflows/docker-release.yml@master
-    secrets:
-      SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
-  binary-release:
-    runs-on: ubuntu-latest
-    permissions:
-      checks: write
-      contents: write
-      discussions: write
-      issues: write
-      packages: write
-      security-events: write
-      statuses: write
-    steps:
-      - uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
-      - run: git fetch --force --tags
-      - name: git-clone-tools-repo
-        uses: actions/checkout@v4
-        with:
-          repository: lrstanley/.github
-          path: ghmeta
-      - uses: lrstanley/.github/composite/go-versions@master
-        id: goversion
-        with:
-          version: latest
-      - name: install-go
-        uses: actions/setup-go@v5
-        with:
-          go-version: "${{ steps.goversion.outputs.version }}"
-      - run: ./ghmeta/goreleaser/run.sh
-        env:
-          INPUT_HAS_GHCR: true
-          INPUT_IMAGE_NAME: ${{ github.repository_owner }}/${{ github.event.repository.name }}
-          INPUT_ARCHIVES: false
-          INPUT_DRAFT: false
-          INPUT_PR_ID: ${{ github.event.pull_request.number }}
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          DEFAULT_BRANCH: ${{ github.event.repository.default_branch || 'master' }}
-      - name: upload-snapshot-binaries
-        if: github.ref_type != 'tag'
-        uses: actions/upload-artifact@v4
-        with:
-          name: snapshot-binaries
-          retention-days: 30
-          path: dist/**
+    secrets: inherit
+    with:
+      dockerfile: Dockerfile
