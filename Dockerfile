@@ -16,7 +16,7 @@ RUN --mount=type=cache,target=/root/.cache \
 	-o /build/autodelete \
 	github.com/riking/AutoDelete/cmd/autodelete
 
-FROM alpine:3.23
+FROM alpine:3.24
 WORKDIR /app
 
 RUN apk add --no-cache ca-certificates
